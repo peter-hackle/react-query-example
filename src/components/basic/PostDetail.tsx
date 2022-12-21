@@ -1,7 +1,7 @@
 import { useQueryClient } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
-import usePostDetailQuery from "../queries/posts/usePostDetailQuery";
-import usePostUpdateMutation from "../queries/posts/usePostUpdateMutation";
+import usePostDetailQuery from "../../queries/posts/usePostDetailQuery";
+import usePostUpdateMutation from "../../queries/posts/usePostUpdateMutation";
 
 export default function PostDetail() {
   const { id } = useParams();

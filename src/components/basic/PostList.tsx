@@ -1,5 +1,7 @@
 import { useQueryClient } from "@tanstack/react-query";
-import usePostsQuery from "../queries/posts/usePostsQuery";
+import { Link } from "react-router-dom";
+import usePostsQuery from "../../queries/posts/usePostsQuery";
+import { usePostsQueryWithFactory } from "../../queries/postsWithQueryFactory/posts";
 import PostListItem from "./PostListItem";
 
 export default function PostList() {
@@ -11,6 +13,7 @@ export default function PostList() {
   return (
     <div>
       <div style={{ display: "flex", flexDirection: "column" }}>
+        <Link to="/factory">Factory</Link>
         <button
           onClick={() =>
             queryClient.invalidateQueries([usePostsQuery.defaultKey])
@@ -32,7 +35,7 @@ export default function PostList() {
         </button>
       </div>
       {data?.map((post) => (
-        <PostListItem key={post.id} post={post} />
+        <PostListItem key={post.id} post={post} to="/posts" />
       ))}
     </div>
   );
